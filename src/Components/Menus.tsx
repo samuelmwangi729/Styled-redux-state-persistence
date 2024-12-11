@@ -41,7 +41,7 @@ const Menus: React.FC = () => {
                         <Link to={"/login"}>Login</Link>
                     </li>
                     <li className='hover:bg-gray-600 hover:text-white py-2 px-2'>
-                        <Link to={"/"}>Register</Link>
+                        <Link to={"/register"}>Register</Link>
                     </li>
                 </>
             )}

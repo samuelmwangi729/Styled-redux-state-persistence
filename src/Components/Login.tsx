@@ -2,17 +2,18 @@
 import React from "react";
 import { login } from "../redux/userSlice";
 import { useAppDispatch } from "../redux/hooks";
+import { Link } from "react-router-dom";
 
 const Login: React.FC = () => {
     const dispatch = useAppDispatch()
     const handleSubmit = (e: any) => {
         e.preventDefault()
-        let data={
-            user:{
-                name:"username here",
-                email:"emailhere@email.com"
+        let data = {
+            user: {
+                name: "username here",
+                email: "emailhere@email.com"
             },
-            token:"123456"
+            token: "123456"
         }
         dispatch(login(data))
     }
@@ -75,12 +76,11 @@ const Login: React.FC = () => {
                         </div>
 
                         <div className="text-sm">
-                            <a
-                                href="#"
+                            <Link to={"/reset"}
                                 className="font-medium text-primary hover:underline"
                             >
                                 Forgot your password?
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
@@ -99,12 +99,11 @@ const Login: React.FC = () => {
                 {/* Sign Up Link */}
                 <p className="text-sm text-center text-gray-600">
                     Don’t have an account?{' '}
-                    <a
-                        href="#"
+                    <Link to={"/register"}
                         className="font-medium text-primary hover:underline"
                     >
                         Sign up
-                    </a>
+                    </Link>
                 </p>
             </div>
         </div>

@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './Components/Layouts/Layout.tsx'
-import { Dashboard, HomePage, Login } from './Components/index.ts'
+import { Dashboard, HomePage, Login, Register, Reset } from './Components/index.ts'
 import Account from './Components/Layouts/Account.tsx'
 //the reducers, import provider and store
 import { Provider } from 'react-redux'
@@ -25,6 +25,14 @@ const router = createBrowserRouter([
         path: '/login',
         element: <Login />
       },
+      {
+        path: '/register',
+        element: <Register />
+      },
+      {
+        path: '/reset',
+        element: <Reset />
+      }
     ]
   }, {
     element: <Protect><Account /></Protect>,
