@@ -1,11 +1,12 @@
 // Import necessary libraries and components
 import React from "react";
-import { login } from "../redux/userSlice";
-import { useAppDispatch } from "../redux/hooks";
+import { loginUser, selectUser } from "../redux/userSlice";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { Link } from "react-router-dom";
 
 const Login: React.FC = () => {
     const dispatch = useAppDispatch()
+    const { loading } = useAppSelector(selectUser)
     const handleSubmit = (e: any) => {
         e.preventDefault()
         let data = {
@@ -15,7 +16,8 @@ const Login: React.FC = () => {
             },
             token: "123456"
         }
-        dispatch(login(data))
+        dispatch(loginUser({ username: "samuelmwangi729", password: "123456" }))
+        // loginUser({username: "samuelmwangi729", password: "123456"})
     }
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -87,8 +89,9 @@ const Login: React.FC = () => {
                     {/* Submit Button */}
                     <div>
                         <button
+                            disabled={loading}
                             type="submit"
-                            className="w-full bg-gray-800 px-4 py-2 text-sm font-medium text-white bg-primary rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                            className="w-full disabled:bg-gray-400 disabled:cursor-not-allowed bg-gray-800 px-4 py-2 text-sm font-medium text-white bg-primary rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                             onClick={e => handleSubmit(e)}
                         >
                             Sign In
